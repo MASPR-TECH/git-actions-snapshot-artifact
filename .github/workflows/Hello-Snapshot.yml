@@ -1,0 +1,19 @@
+name: Create Python Hello World Snapshot
+
+on:
+  schedule:
+    - cron: '5 * * * *'  # Executes the workflow every 5 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Python Hello World
+        run: echo "print('Hello, World!')" > hello_$(date +"%Y%m%d%H%M%S").py
+
+      - name: Archive Snapshot
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-hello-world
+          path: hello_*.py
