@@ -2,7 +2,7 @@ name: Create Python Hello World Snapshot
 
 on:
   schedule:
-    - cron: '5 * * * *'  # Executes the workflow every 5 minutes
+    - cron: ' */15 * * * * '  # Executes the workflow every 15 minutes
 
 jobs:
   build:
